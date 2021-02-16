@@ -27,7 +27,7 @@ let seattle = {
     minCustomersPerHour: 23,
     maxCustomersPerHour: 65,
     avgCookiesPerSale: 6.3,
-    liArray: [],
+    simulatedCookiesEachHour: [],
     totalCookies: 0,
     generateCustomersPerHour: function() {
         let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -47,18 +47,18 @@ let seattle = {
             let cookieNumber = this.calcCookiesEachHour();
             liElem.textContent = timeSlots [i] + ' : ' + cookieNumber + ' cookies';
             ulElem.appendChild(liElem);
-            this.liArray.push([timeSlots[i], cookieNumber]);
+            this.simulatedCookiesEachHour.push([timeSlots[i], cookieNumber]);
         }
-        for (let i = 0; i < this.liArray.length; i++){
-            let target = this.liArray[i]
+        for (let i = 0; i < this.simulatedCookiesEachHour.length; i++){
+            let target = this.simulatedCookiesEachHour[i]
             let number = target [1]
             this.totalCookies += number
         }
-        this.liArray.push(['total', this.totalCookies])
+        this.simulatedCookiesEachHour.push(['total', this.totalCookies])
         let liElem = document.createElement('li');
         liElem.textContent = 'Total' + ' : ' + this.totalCookies + ' cookies';
         ulElem.appendChild(liElem);
-        console.log(this.liArray);
+        console.log(this.simulatedCookiesEachHour);
         console.log(this.totalCookies);
     },
 };
@@ -69,7 +69,7 @@ let tokyo = {
     minCustomersPerHour: 3,
     maxCustomersPerHour: 24,
     avgCookiesPerSale: 1.2,
-    liArray: [],
+    simulatedCookiesEachHour: [],
     totalCookies: 0,
     generateCustomersPerHour: function() {
         let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -89,18 +89,18 @@ let tokyo = {
             let cookieNumber = this.calcCookiesEachHour();
             liElem.textContent = timeSlots [i] + ' : ' + cookieNumber + ' cookies';
             ulElem.appendChild(liElem);
-            this.liArray.push([timeSlots[i], cookieNumber]);
+            this.simulatedCookiesEachHour.push([timeSlots[i], cookieNumber]);
         }
-        for (let i = 0; i < this.liArray.length; i++){
-            let target = this.liArray[i]
+        for (let i = 0; i < this.simulatedCookiesEachHour.length; i++){
+            let target = this.simulatedCookiesEachHour[i]
             let number = target [1]
             this.totalCookies += number
         }
-        this.liArray.push(['total', this.totalCookies])
+        this.simulatedCookiesEachHour.push(['total', this.totalCookies])
         let liElem = document.createElement('li');
         liElem.textContent = 'Total' + ' : ' + this.totalCookies + ' cookies';
         ulElem.appendChild(liElem);
-        console.log(this.liArray);
+        console.log(this.simulatedCookiesEachHour);
         console.log(this.totalCookies);
     },
 };
@@ -111,7 +111,7 @@ let dubai = {
     minCustomersPerHour: 11,
     maxCustomersPerHour: 38,
     avgCookiesPerSale: 3.7,
-    liArray: [],
+    simulatedCookiesEachHour: [],
     totalCookies: 0,
     generateCustomersPerHour: function() {
         let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -131,18 +131,18 @@ let dubai = {
             let cookieNumber = this.calcCookiesEachHour();
             liElem.textContent = timeSlots [i] + ' : ' + cookieNumber + ' cookies';
             ulElem.appendChild(liElem);
-            this.liArray.push([timeSlots[i], cookieNumber]);
+            this.simulatedCookiesEachHour.push([timeSlots[i], cookieNumber]);
         }
-        for (let i = 0; i < this.liArray.length; i++){
-            let target = this.liArray[i]
+        for (let i = 0; i < this.simulatedCookiesEachHour.length; i++){
+            let target = this.simulatedCookiesEachHour[i]
             let number = target [1]
             this.totalCookies += number
         }
-        this.liArray.push(['total', this.totalCookies])
+        this.simulatedCookiesEachHour.push(['total', this.totalCookies])
         let liElem = document.createElement('li');
         liElem.textContent = 'Total' + ' : ' + this.totalCookies + ' cookies';
         ulElem.appendChild(liElem);
-        console.log(this.liArray);
+        console.log(this.simulatedCookiesEachHour);
         console.log(this.totalCookies);
     },
 };
@@ -153,7 +153,7 @@ let paris = {
     minCustomersPerHour: 20,
     maxCustomersPerHour: 38,
     avgCookiesPerSale: 2.3,
-    liArray: [],
+    simulatedCookiesEachHour: [],
     totalCookies: 0,
     generateCustomersPerHour: function() {
         let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -173,18 +173,18 @@ let paris = {
             let cookieNumber = this.calcCookiesEachHour();
             liElem.textContent = timeSlots [i] + ' : ' + cookieNumber + ' cookies';
             ulElem.appendChild(liElem);
-            this.liArray.push([timeSlots[i], cookieNumber]);
+            this.simulatedCookiesEachHour.push([timeSlots[i], cookieNumber]);
         }
-        for (let i = 0; i < this.liArray.length; i++){
-            let target = this.liArray[i]
+        for (let i = 0; i < this.simulatedCookiesEachHour.length; i++){
+            let target = this.simulatedCookiesEachHour[i]
             let number = target [1]
             this.totalCookies += number
         }
-        this.liArray.push(['total', this.totalCookies])
+        this.simulatedCookiesEachHour.push(['total', this.totalCookies])
         let liElem = document.createElement('li');
         liElem.textContent = 'Total' + ' : ' + this.totalCookies + ' cookies';
         ulElem.appendChild(liElem);
-        console.log(this.liArray);
+        console.log(this.simulatedCookiesEachHour);
         console.log(this.totalCookies);
     },
 };
@@ -195,7 +195,7 @@ let lima = {
     minCustomersPerHour: 2,
     maxCustomersPerHour: 16,
     avgCookiesPerSale: 4.6,
-    liArray: [],
+    simulatedCookiesEachHour: [],
     totalCookies: 0,
     generateCustomersPerHour: function() {
         let customersPerHour = randomInRange(this.minCustomersPerHour, this.maxCustomersPerHour);
@@ -215,18 +215,18 @@ let lima = {
             let cookieNumber = this.calcCookiesEachHour();
             liElem.textContent = timeSlots [i] + ' : ' + cookieNumber + ' cookies';
             ulElem.appendChild(liElem);
-            this.liArray.push([timeSlots[i], cookieNumber]);
+            this.simulatedCookiesEachHour.push([timeSlots[i], cookieNumber]);
         }
-        for (let i = 0; i < this.liArray.length; i++){
-            let target = this.liArray[i]
+        for (let i = 0; i < this.simulatedCookiesEachHour.length; i++){
+            let target = this.simulatedCookiesEachHour[i]
             let number = target [1]
             this.totalCookies += number
         }
-        this.liArray.push(['total', this.totalCookies])
+        this.simulatedCookiesEachHour.push(['total', this.totalCookies])
         let liElem = document.createElement('li');
         liElem.textContent = 'Total' + ' : ' + this.totalCookies + ' cookies';
         ulElem.appendChild(liElem);
-        console.log(this.liArray);
+        console.log(this.simulatedCookiesEachHour);
         console.log(this.totalCookies);
     },
 };
