@@ -1,4 +1,3 @@
-// we need cookiesEachHour for all the time slots
 let timeSlots = [
     '6am',
     '7am',
@@ -52,7 +51,6 @@ function tableTimeHeader(){
     const tableElem = document.getElementById('table');
     const row1 = document.createElement('tr');
     const blankCell = document.createElement('td');
-    blankCell.textContent = '';
     row1.appendChild(blankCell);
     tableElem.appendChild(row1);
     for (let i = 0; i < timeSlots.length; i++) {
@@ -92,13 +90,6 @@ function tableFooterTotals(){
 }
 
 CookieStand.prototype.render = function(){
-    const article = document.createElement('article');
-    const profileContainer = document.getElementById(this.id);
-    profileContainer.appendChild(article);
-
-    const pElem = document.createElement('p');
-    article.appendChild (pElem);
-
     const tableElem = document.getElementById('table');
 
     const row2 = document.createElement('tr');
@@ -144,9 +135,3 @@ standLima.calcCookiesEachHour();
 standLima.render();
 
 tableFooterTotals();
-
-// const cities = [seattle, tokyo, dubai, paris, lima];
-// for (let index = 0; index < cities.length; i++){
-//     const cities = cities[index];
-//     id.render();
-// }
