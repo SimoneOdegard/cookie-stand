@@ -21,6 +21,7 @@ function randomInRange (min,max){
     return Math.floor(Math.random() * (range + 1)) + min;
 }
 
+let allStands = [];
 function CookieStand (id, location, min, max, avg, totalCookies, cookiesPerHourArray = []) {
     this.id = id;
     this.location = location;
@@ -29,6 +30,7 @@ function CookieStand (id, location, min, max, avg, totalCookies, cookiesPerHourA
     this.avgCookiesPerSale = avg;
     this.totalCookies = totalCookies;
     this.cookiesPerHourArray = cookiesPerHourArray;
+    allStands.push(this);
 }
 
 CookieStand.prototype.generateCustomersPerHour = function(){
@@ -70,16 +72,22 @@ function tableFooterTotals(){
     cellHourlyTotals.textContent = 'Totals';
     tableElem.appendChild(row3);
     row3.appendChild(cellHourlyTotals);
-    let globalTotal = 0
+    let globalTotal = 0;
+    let globalArray = [];
     for (let i = 0; i < timeSlots.length; i++){
-        let hourlyTotal = standSeattle.cookiesPerHourArray[i][1] + standTokyo.cookiesPerHourArray[i][1] + standDubai.cookiesPerHourArray[i][1] + standParis.cookiesPerHourArray[i][1] + standLima.cookiesPerHourArray[i][1];
+        let locationCount = 0;
+        for (let j = 0; j < allStands.length; j++){
+            locationCount += allStands[j].cookiesPerHourArray[i][1];
+
+        }
         const cellTotal = document.createElement('td');
-        cellTotal.textContent = hourlyTotal;
+        cellTotal.textContent = locationCount;
         row3.appendChild(cellTotal);
-        globalTotal += hourlyTotal;
+        globalTotal += locationCount;
     }
+    console.log (globalArray);
     const globalTotalCell = document.createElement('td');
-    globalTotalCell.textContent= globalTotal;
+    globalTotalCell.textContent = globalTotal;
     row3.appendChild(globalTotalCell);
 }
 
