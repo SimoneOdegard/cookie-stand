@@ -2,23 +2,34 @@
 <head>
     <title>Salmon Cookies Sales</title>
     <link href = "style.css" rel = "stylesheet"/>
-    <nav>
-        <ul class="navBar">
-            <li class="navBar"><a href="index.html">Home</a></li>
-            <li class="navBar"><a href="sales.html">Sales Figures</a></li>
-            <li class="navBar"><a href="https://www.youtube.com/watch?v=wtrC7rvetH0">Learn About Salmon</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul class="navBar">
+                <li class="navBar"><a href="index.html">Home</a></li>
+                <li class="navBar"><a href="sales.html">Sales Figures</a></li>
+                <li class="navBar"><a href="https://www.youtube.com/watch?v=wtrC7rvetH0">Learn About Salmon</a></li>
+            </ul>
+        </nav>
+    </header>
 </head>
 <body>
     <div class="fixedContainer">
     <h1>Pat's Salmon Cookies</h1>
+    <form id = "new-store-form">
+        <fieldset>
+            <legend>Enter New Cookie Store:</legend>
+            <label for = "name-input">Store Name:</label>
+            <input type = "text" id = "name-input" name = "storeName"/>
+            <label for = "min-input">Minimum Customers</label>
+            <input type = "number" id = "min-input" name = "minCustomers"/>
+            <label for = "max-input">Maximum Customers</label>
+            <input type = "number" id = "max-input" name = "maxCustomers"/>
+            <label for = "avg-input">Average Cookies Per Sale</label>
+            <input type = "float" id = "avg-input" name = "avgCookies"/>
+            <button type ="submit">SUBMIT</button>
+        </fieldset>
+    </form>
     <table id="table"></table>
-    <ul id="seattle"></ul>
-    <ul id="tokyo"></ul>
-    <ul id="dubai"></ul>
-    <ul id="paris"></ul>
-    <ul id="lima"></ul>
     <script src="js/app.js"></script>
     </div>
 </body>

@@ -21,14 +21,14 @@ function randomInRange (min,max){
 }
 
 let allStands = [];
-function CookieStand (id, location, min, max, avg, totalCookies, cookiesPerHourArray = []) {
-    this.id = id;
+function CookieStand (location, min, max, avg) {
+    this.id = location.toLowerCase();
     this.location = location;
     this.minCustomersPerHour = min;
     this.maxCustomersPerHour = max;
     this.avgCookiesPerSale = avg;
-    this.totalCookies = totalCookies;
-    this.cookiesPerHourArray = cookiesPerHourArray;
+    this.totalCookies = 0;
+    this.cookiesPerHourArray = [];
     allStands.push(this);
 }
 
@@ -63,9 +63,14 @@ function tableTimeHeader(){
     row1.appendChild(dailyLocationTotals);
 }
 
+const button = document.getElementById('new-store-form');
+button.addEventListener('submit', submitHandler);
+
 function tableFooterTotals(){
     const tableElem = document.getElementById('table');
     const row3 = document.createElement('tr');
+    row3.setAttribute('id', 'row3')
+
     const cellHourlyTotals = document.createElement('td');
     cellHourlyTotals.textContent = 'Totals';
     tableElem.appendChild(row3);
@@ -76,7 +81,6 @@ function tableFooterTotals(){
         let locationCount = 0;
         for (let j = 0; j < allStands.length; j++){
             locationCount += allStands[j].cookiesPerHourArray[i][1];
-
         }
         const cellTotal = document.createElement('td');
         cellTotal.textContent = locationCount;
@@ -89,20 +93,32 @@ function tableFooterTotals(){
     row3.appendChild(globalTotalCell);
 }
 
+function submitHandler (event){
+    event.preventDefault();
+    let inputStand = new CookieStand (event.target.storeName.value,
+        event.target.minCustomers.value,
+        event.target.maxCustomers.value,
+        event.target.avgCookies.value)
+        inputStand.generateCustomersPerHour();
+        inputStand.calcCookiesEachHour();
+        inputStand.render();
+        oldFooter =  document.getElementById("row3");
+        oldFooter.remove();
+        tableFooterTotals();
+        console.log(inputStand);
+}
+
 CookieStand.prototype.render = function(){
     const tableElem = document.getElementById('table');
-
     const row2 = document.createElement('tr');
     tableElem.appendChild(row2);
-
     const locationsCell = document.createElement('td');
-    locationsCell.textContent = this.id;
+    locationsCell.textContent = this.location;
     row2.appendChild(locationsCell);
-
     for (let i = 0; i < timeSlots.length; i++){
-    const cookiesPerHourTableElem = document.createElement('td');
-    row2.appendChild(cookiesPerHourTableElem);
-    cookiesPerHourTableElem.textContent = this.cookiesPerHourArray[i][1];
+        const cookiesPerHourTableElem = document.createElement('td');
+        row2.appendChild(cookiesPerHourTableElem);
+        cookiesPerHourTableElem.textContent = this.cookiesPerHourArray[i][1];
     }
 
     const dailyTotalRow = document.createElement('td');
@@ -113,23 +129,23 @@ CookieStand.prototype.render = function(){
 
 tableTimeHeader();
 
-let standSeattle = new CookieStand ('seattle', 'Seattle Stand', 23, 65, 6.3, 0);
+let standSeattle = new CookieStand ('Seattle', 23, 65, 6.3);
 standSeattle.generateCustomersPerHour();
 standSeattle.calcCookiesEachHour();
 standSeattle.render();
-let standTokyo = new CookieStand ('tokyo', 'Tokyo Stand', 3, 24, 1.2, 0);
+let standTokyo = new CookieStand ('Tokyo', 3, 24, 1.2);
 standTokyo.generateCustomersPerHour();
 standTokyo.calcCookiesEachHour();
 standTokyo.render();
-let standDubai = new CookieStand ('dubai', 'Dubai Stand', 11, 38, 3.7, 0);
+let standDubai = new CookieStand ('Dubai', 11, 38, 3.7);
 standDubai.generateCustomersPerHour();
 standDubai.calcCookiesEachHour();
 standDubai.render();
-let standParis = new CookieStand ('paris', 'Paris Stand', 20, 38, 2.3, 0);
+let standParis = new CookieStand ('Paris', 20, 38, 2.3);
 standParis.generateCustomersPerHour();
 standParis.calcCookiesEachHour();
 standParis.render();
-let standLima = new CookieStand ('lima', 'Lima Stand', 2, 16, 4.6, 0);
+let standLima = new CookieStand ('Lima', 2, 16, 4.6);
 standLima.generateCustomersPerHour();
 standLima.calcCookiesEachHour();
 standLima.render();
