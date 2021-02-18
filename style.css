@@ -1,0 +1,120 @@
+head {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.fixedContainer {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #999;
+}
+
+nav {
+    text-align: center;
+    display: block;
+    background-color: salmon;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a:hover {
+    color: black;
+    cursor: pointer;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.navBar {
+    display: inline-block;
+    list-style: none;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+#bigSalmon {
+    background-color: white;
+    text-align: center;
+}
+
+.salmonTextBoxes {
+    background-color: white;
+    height: 300px;
+}
+
+.locationsAndHours {
+    height: 350px;
+    background-color: white;
+}
+
+.alignedImages {
+    width: 300px;
+    float: left;
+    padding: 20px;
+    background-color: white;
+}
+
+#shirtImage {
+    height: 270px;
+    float: left;
+    padding: 20px;
+    padding-right: 40px;
+}
+
+#babyFish {
+    height: 150px;
+}
+
+#contactTextBox {
+    height: 225px;
+    background-color: white;
+    text-align: center;
+}
+
+#babySalmon {
+    width: 200px;
+    text-align: center;
+}
+
+li {
+    list-style: circle;
+    margin-right: 30px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+  
+#table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#table tr:nth-child(even){background-color: #f2f2f2;}
+  
+#table tr:hover {background-color: #ddd;}
+  
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: salmon;
+    color: white;
+}
