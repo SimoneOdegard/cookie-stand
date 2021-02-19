@@ -63,9 +63,6 @@ function tableTimeHeader(){
     row1.appendChild(dailyLocationTotals);
 }
 
-const button = document.getElementById('new-store-form');
-button.addEventListener('submit', submitHandler);
-
 function tableFooterTotals(){
     const tableElem = document.getElementById('table');
     const row3 = document.createElement('tr');
@@ -87,7 +84,6 @@ function tableFooterTotals(){
         row3.appendChild(cellTotal);
         globalTotal += locationCount;
     }
-    console.log (globalArray);
     const globalTotalCell = document.createElement('td');
     globalTotalCell.textContent = globalTotal;
     row3.appendChild(globalTotalCell);
@@ -105,8 +101,10 @@ function submitHandler (event){
         oldFooter =  document.getElementById("row3");
         oldFooter.remove();
         tableFooterTotals();
-        console.log(inputStand);
 }
+
+const button = document.getElementById('new-store-form');
+button.addEventListener('submit', submitHandler);
 
 CookieStand.prototype.render = function(){
     const tableElem = document.getElementById('table');
