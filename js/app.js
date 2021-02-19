@@ -92,9 +92,9 @@ function tableFooterTotals(){
 function submitHandler (event){
     event.preventDefault();
     let inputStand = new CookieStand (event.target.storeName.value,
-        event.target.minCustomers.value,
-        event.target.maxCustomers.value,
-        event.target.avgCookies.value)
+        parseInt(event.target.minCustomers.value),
+        parseInt(event.target.maxCustomers.value),
+        parseFloat(event.target.avgCookies.value))
         inputStand.generateCustomersPerHour();
         inputStand.calcCookiesEachHour();
         inputStand.render();
