@@ -63,9 +63,6 @@ function tableTimeHeader(){
     row1.appendChild(dailyLocationTotals);
 }
 
-const button = document.getElementById('new-store-form');
-button.addEventListener('submit', submitHandler);
-
 function tableFooterTotals(){
     const tableElem = document.getElementById('table');
     const row3 = document.createElement('tr');
@@ -87,7 +84,6 @@ function tableFooterTotals(){
         row3.appendChild(cellTotal);
         globalTotal += locationCount;
     }
-    console.log (globalArray);
     const globalTotalCell = document.createElement('td');
     globalTotalCell.textContent = globalTotal;
     row3.appendChild(globalTotalCell);
@@ -96,17 +92,19 @@ function tableFooterTotals(){
 function submitHandler (event){
     event.preventDefault();
     let inputStand = new CookieStand (event.target.storeName.value,
-        event.target.minCustomers.value,
-        event.target.maxCustomers.value,
-        event.target.avgCookies.value)
+        parseInt(event.target.minCustomers.value),
+        parseInt(event.target.maxCustomers.value),
+        parseFloat(event.target.avgCookies.value))
         inputStand.generateCustomersPerHour();
         inputStand.calcCookiesEachHour();
         inputStand.render();
         oldFooter =  document.getElementById("row3");
         oldFooter.remove();
         tableFooterTotals();
-        console.log(inputStand);
 }
+
+const button = document.getElementById('new-store-form');
+button.addEventListener('submit', submitHandler);
 
 CookieStand.prototype.render = function(){
     const tableElem = document.getElementById('table');
